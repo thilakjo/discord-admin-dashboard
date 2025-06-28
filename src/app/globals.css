@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base HTML & Body styles for the 'light' theme (default) */
+html {
+  color-scheme: light; /* Instructs browser to render native elements in light mode */
+  @apply bg-gray-50; /* Light background for the entire page in light mode */
+}
+
+body {
+  @apply text-gray-800; /* Dark text for light mode */
+}
+
+/* Dark Mode Overrides - these styles apply ONLY when 'html' element has the 'dark' class */
+html.dark {
+  color-scheme: dark; /* Instructs browser to render native elements in dark mode */
+  @apply bg-discordGrey; /* Dark background for the entire page in dark mode */
+}
+
+html.dark body {
+  @apply text-white; /* White text for dark mode */
+}
+
+/* Important Notes:
+   - Components like Sidebar and Navbar are intentionally designed to be dark
+     (bg-discordDark) regardless of the primary theme, so their styles don't need 'dark:' prefixes.
+   - The <main> content area in app/layout.tsx uses 'dark:' prefixes directly
+     to switch its background and text based on the 'dark' class on 'html'.
+*/
